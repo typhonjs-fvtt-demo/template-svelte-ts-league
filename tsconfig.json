@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "target": "ES2022",
+    "baseUrl": ".",
+
+    "types": [
+      "@league-of-foundry-developers/foundry-vtt-types",
+      "@typhonjs-fvtt/runtime/types/fvtt-shim/league"
+    ],
+
+    "isolatedModules": true,
+    "sourceMap": true,
+
+    "strict": true,
+    "strictNullChecks": true,
+    "forceConsistentCasingInFileNames": true,
+
+    "verbatimModuleSyntax": true
+  },
+
+  "include": ["src/**/*"],
+  "exclude": ["node_modules/*"]
+}
