@@ -1,4 +1,4 @@
-# template-svelte-ts
+# template-svelte-ts-league
 [![TyphonJS Discord](https://img.shields.io/discord/737953117999726592?label=TyphonJS%20Discord)](https://typhonjs.io/discord/)
 [![Twitch](https://img.shields.io/twitch/status/typhonrt?style=social)](https://www.twitch.tv/typhonrt)
 [![Code Style](https://img.shields.io/badge/code%20style-allman-yellowgreen.svg?style=flat)](https://en.wikipedia.org/wiki/Indent_style#Allman_style)
@@ -6,8 +6,9 @@
 
 Provides a barebones [Foundry VTT](https://foundryvtt.com/) module template repo to get set up with using the [TyphonJS Runtime Library](https://github.com/typhonjs-fvtt-lib/runtime), [Svelte](https://svelte.dev/), and [Typescript](https://www.typescriptlang.org/).
 
-The Foundry types being used is [foundry-pf2e](https://github.com/7H3LaughingMan/foundry-pf2e). The League's community
-types will work as well if you can find a stable version.
+The Foundry types being used is [foundry-vtt-types](https://github.com/League-of-Foundry-Developers/foundry-vtt-types).
+The League's community types have been a long running work in progress. If you are developing for the PF2E game system
+and / or would like to try out different types granted w/ some PF2E specifics please see [template-svelte-ts-pf2e](https://github.com/typhonjs-fvtt-demo/template-svelte-ts-pf2e).
 
 [TRL API docs](https://typhonjs-fvtt-lib.github.io/api-docs/index.html)
 
@@ -37,7 +38,7 @@ Don't skip step 9.... You have read this list right?
    of your repo as the folder installed in the modules directory).
 4. Modify the module `id` in `module.json` to match your new Foundry package ID.
 5. You may of course also change the title & description of the module in `module.json`.
-6. Rename `template-svelte-ts.lock` to the new ID of your module. This prevents Foundry from overwriting your development
+6. Rename `template-svelte-ts-league.lock` to the new ID of your module. This prevents Foundry from overwriting your development
    repo if you have also released your Foundry package.
 7. In `./vite.config.ts` update `s_SVELTE_HASH_ID` to provide a short unique hash ID; suggestion: base it off your package ID.
 8. Open in your IDE or via command line and proceed to run `npm install`
@@ -62,4 +63,4 @@ Don't skip step 9.... You have read this list right?
   manifest URL field in the add-on modules / install module screen: `https://github.com/<YOUR GITHUB USER NAME>/<YOUR REPO>/releases/latest/download/module.json`.
 
 ## Updating types:
-- `foundry-pf2e` only provides a direct Github install / linked in `package.json`. Run `npm update` to get the latest.
+- `foundry-vtt-types` does have releases on NPM. Depending on the state of the types you may wish to directly install from the repo.
