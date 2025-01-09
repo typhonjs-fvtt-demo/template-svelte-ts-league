@@ -14,9 +14,8 @@
     "sourceMap": true,
 
     "strict": true,
-    "strictNullChecks": true,
-    "forceConsistentCasingInFileNames": true,
 
+    "forceConsistentCasingInFileNames": true,
     "verbatimModuleSyntax": true
   },
 
