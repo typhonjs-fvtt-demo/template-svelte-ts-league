@@ -37,7 +37,7 @@ class BasicApp extends SvelteApp<BasicApp.Options>
          width: '25%',  // Just showing off you can use browser window percentages too!
          top: '10%',
 
-         title: 'TemplateTS.title',
+         title: 'TemplateLeague.title',
 
          svelte: {
             class: BasicAppShell,
@@ -58,6 +58,7 @@ class BasicApp extends SvelteApp<BasicApp.Options>
 
                /** Disallowed protected prop; part of application shell contract */
                // elementRoot: document.body,
+               // elementContent: document.body,
             }
          }
       });
@@ -65,10 +66,10 @@ class BasicApp extends SvelteApp<BasicApp.Options>
 
    _getHeaderButtons(): SvelteApp.HeaderButton[]
    {
-      const buttons = super._getHeaderButtons();
+      const buttons: SvelteApp.HeaderButton[] = super._getHeaderButtons();
 
-      // Example temporary variable.
-      let themeDarkMode: boolean = true;
+      // Basic data tracking for button below; use another mechanism in your actual code!
+      let themeDark: boolean = true;
 
       buttons.unshift({
          class: 'theme-dark',
@@ -77,43 +78,41 @@ class BasicApp extends SvelteApp<BasicApp.Options>
          styles: { color: 'lightblue' },
          keepMinimized: true,             // When true the header button remains when app is minimized.
 
-         // Modifying `button` will update it reactively.
+         // The button data can be modified and reactive updates occur after the function completes.
          onPress: ({ button }: { button: SvelteApp.HeaderButton }): void =>
          {
-            themeDarkMode = !themeDarkMode;
-            button.title = themeDarkMode ? 'Dark Mode disable' : 'Dark Mode enable';
-            button.styles = themeDarkMode ? { color: 'lightblue' } : { color: 'white' };
-         },
+            // Demo of changing the header button title / CSS.
+            themeDark = !themeDark;
+            button.title = themeDark ? 'Dark Mode disable' : 'Dark Mode enable';
+            button.styles = themeDark ? { color: 'lightblue' } : { color: 'white' };
+         }
 
          /**
           * There are several additional button data options available in TRL.
           */
-         // You can provide an alternate key code for button key press.
-         keyCode: 'Space',
-
-         // You can define `onContextMenu` for right click / contextmenu key press.
-         onContextMenu: ({ button, event }) =>
-         {
-            console.log(`HeaderButtons - onContextMenu`);
-         }
+         // keyCode: 'Space',                   // You can provide an alternate key code for button key press.
+         // onContextMenu: ({ button, event })  // You can define `onContextMenu` for right click / contextmenu key press.
+         // {
+         //    console.log(`HeaderButtons - onContextMenu`);
+         // },
       });
 
       return buttons;
    }
 
    /**
-    * Shows how to access the mounted app shell -> `BasicAppShell` from the JS side with types.
+    * Shows how to access the mounted app shell -> `BasicAppShell` from the TS side with types.
     *
     * TRL will limit access to only props and `$set` and `$on`. `$destroy` is considered protected. Use the `close`
     * method to close an app window as per normal; this will destroy the mounted app shell component.
     */
-   testingAppShell()
+   testingAppShell(): void
    {
       // App shell may be null, but with optional chaining you can access $set and $on.
       this.svelte.appShell?.$set({ test: false });
 
       // Receive events from the component.
-      const unsubscribe = this.svelte.appShell?.$on('click', () => console.log('clicked'));
+      const unsubscribe = this.svelte.appShell?.$on('click', (): void => console.log('clicked'));
 
       // Disallowed Svelte component API.
       // this.svelte.appShell?.$destroy();

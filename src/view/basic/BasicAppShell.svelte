@@ -3,7 +3,7 @@
 
    import { ApplicationShell }   from '#runtime/svelte/component/application';
 
-   import { type BasicApp }      from './BasicApp';
+   import type { BasicApp }      from './BasicApp';
 
    /**
     * Application shell contract. Export the `elementRoot` from `ApplicationShell`. This is how `SvelteApp`
