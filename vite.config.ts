@@ -1,11 +1,13 @@
 import { svelte }             from '@sveltejs/vite-plugin-svelte';
+
 import {
    postcssConfig,
-   terserConfig
-}                             from '@typhonjs-fvtt/runtime/rollup';
-import moduleJSON             from './module.json' with { type: 'json' };
+   terserConfig }             from '@typhonjs-fvtt/runtime/rollup';
+
 import { sveltePreprocess }   from 'svelte-preprocess';
 import { defineConfig }       from 'vite';
+
+import moduleJSON             from './module.json' with { type: 'json' };
 
 // ATTENTION!
 // Please modify the below s_SVELTE_HASH_ID variable appropriately.
