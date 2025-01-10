@@ -21,11 +21,6 @@
     "@league-of-foundry-developers/foundry-vtt-types": "^12.331.3-beta",
     "typescript": "^5.7.3"
   },
-  "peerDependencies": {
-    "@sveltejs/vite-plugin-svelte": "^3.1.2",
-    "svelte-preprocess": "^6",
-    "vite": "^5"
-  },
   "browserslist": [
     ">5%",
     "not IE 11"
